@@ -1,26 +1,22 @@
 import { StatusBar } from 'react-native';
-import { Box, NativeBaseProvider, Text } from 'native-base';
+import { NativeBaseProvider } from 'native-base';
+import { Login } from '@screens/Login';
+
+import { useFonts, Karla_400Regular, Karla_700Bold} from '@expo-google-fonts/karla'
+import { THEME } from './src/theme';
+import { Loading } from '@components/Loading';
 
 export default function App() {
+  const [loadingFonts] = useFonts({Karla_400Regular, Karla_700Bold })
+
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={THEME}>
       <StatusBar
         backgroundColor='transparent'
         barStyle='light-content'
         translucent
       />
-      <Box 
-        flex={1}
-        alignItems='center'
-        justifyContent='center'
-        bgColor="#1A181B"
-      >
-        <Text 
-          color="#FFF"
-        >
-          Chama, dum dumn dumm dumnd umd ummm
-        </Text>
-      </Box>
+       {loadingFonts ? <Login /> : <Loading />}
     </NativeBaseProvider>
   );
 }
