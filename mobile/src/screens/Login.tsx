@@ -50,7 +50,7 @@ export function Login() {
       </VStack>
 
       <VStack flex={1} paddingX="12" marginTop="12">
-        <Text>
+        <Text textAlign="center" marginBottom="4">
           Ainda não tem acesso?
         </Text>
 

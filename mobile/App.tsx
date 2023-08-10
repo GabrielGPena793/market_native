@@ -5,6 +5,7 @@ import { Login } from '@screens/Login';
 import { useFonts, Karla_400Regular, Karla_700Bold} from '@expo-google-fonts/karla'
 import { THEME } from './src/theme';
 import { Loading } from '@components/Loading';
+import { SingIn } from '@screens/SingIn';
 
 export default function App() {
   const [loadingFonts] = useFonts({Karla_400Regular, Karla_700Bold })
@@ -16,7 +17,7 @@ export default function App() {
         barStyle='light-content'
         translucent
       />
-       {loadingFonts ? <Login /> : <Loading />}
+       {loadingFonts ? <SingIn /> : <Loading />}
     </NativeBaseProvider>
   );
 }

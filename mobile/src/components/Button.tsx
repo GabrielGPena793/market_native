@@ -8,7 +8,7 @@ type ButtonProps = IButtonProps & {
 
 export function Button({text, variants = "primary", ...rest}: ButtonProps) {
 
-  const variantsColors = {
+  const variantsBgColors = {
     primary: "blue.500",
     secondary: "gray.500",
     dark: "gray.100"
@@ -17,16 +17,17 @@ export function Button({text, variants = "primary", ...rest}: ButtonProps) {
   return (
     <NativeBaseButton
       w="full"
-      bg={variantsColors[variants]}
+      bg={variantsBgColors[variants]}
 
       _text={ { 
         fontFamily: "heading",
-        fontSize: "sm"
+        fontSize: "sm",
+        color: variants === "secondary" ? "gray.200" : "white"
       }}
 
       _pressed={{
-        bg: "blue.500",
-        opacity: 0.9
+        bg: variantsBgColors[variants],
+        opacity: 0.8
       }}
 
       {...rest}
