@@ -1,6 +1,9 @@
 import { SafeAreaView } from "react-native";
 import { Heading, Pressable, ScrollView, Text, VStack, useTheme } from "native-base";
 
+import { useNavigation } from "@react-navigation/native"
+import { AuthNavigationRoutesProps } from "@routes/auth.routes";
+
 import LogosSVG from "@assets/logo.svg"
 import AvatarSVG from "@assets/avatar.svg"
 
@@ -11,10 +14,15 @@ import { PencilSimpleLine } from "phosphor-react-native";
 export function SingIn() {
 
   const { colors } = useTheme()
+  const navigation = useNavigation<AuthNavigationRoutesProps>()
 
+
+  function loginNavigate() {
+    navigation.navigate("login")
+  }
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView flex={1} showsVerticalScrollIndicator={false}>
         <VStack
           alignItems='center'
@@ -86,7 +94,7 @@ export function SingIn() {
             Já tem uma conta?
           </Text>
 
-          <Button text="Ir para o login" variants="secondary" />
+          <Button text="Ir para o login" variants="secondary" onPress={loginNavigate} />
 
         </VStack>
 

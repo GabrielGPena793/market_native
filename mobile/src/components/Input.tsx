@@ -36,13 +36,13 @@ export function Input({ isSecretInput = false, ...rest }: InputProps) {
         <Icon as={
           <Pressable onPress={handleShowPassword} style={{ marginRight: 16 }}>
             {showPassword ?
-              <EyeSlash size={20} color={colors.gray["300"]} /> :
-              <Eye size={20} color={colors.gray["300"]} />
+              <Eye size={20} color={colors.gray["300"]} /> :
+              <EyeSlash size={20} color={colors.gray["300"]} />
             }
           </Pressable>
         } />) : undefined}
 
-      secureTextEntry={showPassword}
+      secureTextEntry={!showPassword}
 
       {...rest}
     />

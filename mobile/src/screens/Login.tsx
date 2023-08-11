@@ -1,15 +1,23 @@
 import { SafeAreaView } from "react-native";
 import { Text, VStack, useTheme } from "native-base";
 
+import { useNavigation } from "@react-navigation/native"
+import { AuthNavigationRoutesProps } from "@routes/auth.routes";
+
 import LogosSVG from "@assets/logo.svg"
 import MarketplaceSVG from "@assets/marketspace.svg"
+
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 
 export function Login() {
 
   const { colors } = useTheme()
+  const navigation = useNavigation<AuthNavigationRoutesProps>()
 
+  function singInNavigate() {
+    navigation.navigate("singIn")
+  }
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
@@ -54,7 +62,7 @@ export function Login() {
           Ainda não tem acesso?
         </Text>
 
-        <Button text="Criar uma conta" variants="secondary" />
+        <Button text="Criar uma conta" variants="secondary" onPress={singInNavigate}/>
       </VStack>
     </SafeAreaView>
   )
