@@ -1,12 +1,14 @@
-import { Button as NativeBaseButton, IButtonProps } from 'native-base'
+import { Button as NativeBaseButton, IButtonProps, Icon } from 'native-base'
+import { Plus } from 'phosphor-react-native';
 
 
 type ButtonProps = IButtonProps & {
   text: string;
   variants?: "primary" | "secondary" | "dark"
+  plusIconLeft?: boolean
 }
 
-export function Button({text, variants = "primary", ...rest}: ButtonProps) {
+export function Button({text, plusIconLeft, variants = "primary", ...rest}: ButtonProps) {
 
   const variantsBgColors = {
     primary: "blue.500",
@@ -29,6 +31,8 @@ export function Button({text, variants = "primary", ...rest}: ButtonProps) {
         bg: variantsBgColors[variants],
         opacity: 0.8
       }}
+
+      leftIcon={ plusIconLeft ? <Icon  as={<Plus size={16} color="white" />}/>  : undefined}
 
       {...rest}
     >

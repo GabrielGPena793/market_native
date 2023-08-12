@@ -1,12 +1,14 @@
 import { Input as NativeBaseInput, IInputProps, Icon, Pressable, useTheme } from "native-base"
-import { Eye, EyeSlash } from "phosphor-react-native"
+import { color } from "native-base/lib/typescript/theme/styled-system";
+import { Eye, EyeSlash, MagnifyingGlass } from "phosphor-react-native"
 import { useState } from "react";
 
 type InputProps = IInputProps & {
   isSecretInput?: boolean;
+  isSearchInput?: boolean;
 }
 
-export function Input({ isSecretInput = false, ...rest }: InputProps) {
+export function Input({ isSearchInput = false, isSecretInput = false, ...rest }: InputProps) {
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -40,7 +42,7 @@ export function Input({ isSecretInput = false, ...rest }: InputProps) {
               <EyeSlash size={20} color={colors.gray["300"]} />
             }
           </Pressable>
-        } />) : undefined}
+        } />)  : undefined}
 
       secureTextEntry={!showPassword}
 
