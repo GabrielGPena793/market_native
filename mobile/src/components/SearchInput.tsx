@@ -1,9 +1,13 @@
 import { Box, HStack, Input } from "native-base";
 import { MagnifyingGlass, Sliders } from "phosphor-react-native";
+import { TouchableOpacity } from "react-native";
 
 
+type SearchInputProps = {
+  onSnapPress: (index: number) => void;
+}
 
-export function SearchInput() {
+export function SearchInput({ onSnapPress }: SearchInputProps) {
 
   return (
     <Box>
@@ -21,8 +25,12 @@ export function SearchInput() {
         InputRightElement={
           <HStack space={3} marginRight={4} >
             <MagnifyingGlass size={20} color="#000" />
-            <Box h={18} w="px" bg="gray.400" />
-            <Sliders size={20} color="#000" />
+
+            <Box w="px" bg="gray.400" />
+
+            <TouchableOpacity onPress={() => onSnapPress(1)} >
+              <Sliders size={20} color="#000" />
+            </TouchableOpacity>
           </HStack>
         }
       />

@@ -3,7 +3,7 @@ import { createBottomTabNavigator, BottomTabNavigationProp } from "@react-naviga
 import { House, SignOut, Tag } from "phosphor-react-native";
 
 import { CreateAdd } from "@screens/CreateAdd";
-import { Home } from "@screens/Home";
+import Home from "@screens/Home";
 import { MyAds } from "@screens/MyAds";
 import { ProductDetails } from "@screens/ProductDetails";
 import { useTheme } from "native-base";
